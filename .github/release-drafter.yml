@@ -4,17 +4,20 @@ name-template: "v$NEXT_PATCH_VERSION"
 tag-template: "v$NEXT_PATCH_VERSION"
 categories:
   - title: "Features"
-    labels:
-      - "feature"
+    when:
+      labels:
+        - "feature"
   - title: "Bug Fixes"
-    labels:
-      - "fix"
-      - "bugfix"
-      - "bug"
+    when:
+      labels:
+        - "fix"
+        - "bugfix"
+        - "bug"
   - title: "Maintenance"
-    labels:
-      - "task"
-      - "documentation"
+    when:
+      labels:
+        - "task"
+        - "documentation"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 template: |
   ## Changes

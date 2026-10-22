@@ -212,7 +212,8 @@ var rulesFile = %s
 				mainFile.Close()
 				os.Remove(mainFile.Name())
 			}()
-			_, err = mainFile.WriteString(fmt.Sprintf(analyzerTemplate, irfileBuf.String()))
+
+			_, err = fmt.Fprintf(mainFile, analyzerTemplate, irfileBuf.String())
 			if err != nil {
 				t.Fatal(err)
 			}

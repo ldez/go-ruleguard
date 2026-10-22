@@ -1,42 +1,46 @@
 {
-  "run": {
-    # timeout for analysis, e.g. 30s, 5m, default is 1m
-    "timeout": "3m",
-  },
+  "version": "2",
   "linters": {
     "enable": [
-      "errcheck",
-      "gosec",
       "gocritic",
-      "gofmt",
-      "goimports",
-      "govet",
-      "gosimple",
-      "ineffassign",
+      "gosec",
       "misspell",
       "nakedret",
-      "staticcheck",
-      "typecheck",
       "unconvert",
-      "unparam",
-      "unused",
+      "unparam"
     ],
     "disable": [
       "depguard",
       "dupl",
       "gocyclo",
       "lll",
-      "prealloc",
+      "prealloc"
     ],
-  },
-  "linters-settings": {
-    "gocritic": {
-      "enabled-checks": [
-        "commentedOutCode",
-      ],
+    "settings": {
+      "gocritic": {
+        "enabled-checks": [
+          "commentedOutCode"
+        ]
+      },
+      "gosec": {
+        "excludes": [
+          "G115"
+        ]
+      }
     },
-    "gosec": {
-      "excludes": ["G115"]
+    "exclusions": {
+      "presets": [
+        "comments",
+        "common-false-positives",
+        "std-error-handling",
+        "legacy"
+      ]
     }
   },
+  "formatters": {
+    "enable": [
+      "gofmt",
+      "goimports"
+    ]
+  }
 }
